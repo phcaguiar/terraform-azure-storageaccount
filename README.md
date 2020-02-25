@@ -22,11 +22,9 @@ module "storage_account" {
   source = "git@github.com:stone-payments/terraform-azure-storageaccount.git?ref=v1.0.0" # see tags for available versions
 
   has_static_website                        = "..." # This variable with the value true defines what the storage account will be for hosting a static website
-
   storage_account_name                      = "..."
   storage_account_resource_group_name       = "..."
   storage_account_location                  = "..."
-
   storage_account_enable_https_traffic_only = "..."
   storage_account_tier                      = "..."
   storage_account_kind                      = "..."
@@ -45,12 +43,8 @@ module "storage_account" {
   source = "git@github.com:stone-payments/terraform-azure-storageaccount.git?ref=v1.0.0" # see tags for available versions
 
   has_storage_account                       = "..." # This variable with the value false defines that the storage account will not be created
-
   storage_account_name                      = "..."
-  storage_account_resource_group_name       = "..."
-
   has_storage_container                     = "..." # This variable with the value true defines that the storage container will be created
-
   storage_container_name                    = "..." # Use this variable only to create a storage container
   storage_container_access_type             = "..." # Use this variable only to create a storage container
 

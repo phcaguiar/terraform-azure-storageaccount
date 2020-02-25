@@ -7,6 +7,7 @@ variable "has_storage_account" {
 
 variable "storage_account_resource_group_name" {
   description = "The resource group name of storage account."
+  default     = null
   
 }
 
