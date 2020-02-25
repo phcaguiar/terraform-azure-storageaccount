@@ -14,6 +14,24 @@ The following parameters are mandatory for all resources:
 - ``storage_account_resource_group_name``: All resources in this module will be created in this resource group. Ex: Infrastructure-Common-EC2-DEV
 - ``storage_account_name``: Name of the storage account.
 
+The example below will create a storage account:
+
+```hcl
+module "storage_account" {
+
+  source = "git@github.com:stone-payments/terraform-azure-storageaccount.git?ref=v1.0.0" # see tags for available versions
+
+  storage_account_name                      = "..."
+  storage_account_resource_group_name       = "..."
+  storage_account_location                  = "..."
+  storage_account_enable_https_traffic_only = "..."
+  storage_account_tier                      = "..."
+  storage_account_kind                      = "..."
+  storage_account_replication_type          = "..."
+
+}
+```
+
 The example below will create a storage account to host a static website:
 
 ```hcl
@@ -31,24 +49,6 @@ module "storage_account_static_website" {
   storage_account_replication_type          = "..."
   storage_account_index_document            = "..." # Use this variable only if the storage account is for hosting a static website
   storage_account_error_404_document        = "..." # Use this variable only if the storage account is for hosting a static website
-
-}
-```
-
-The example below will create a storage account:
-
-```hcl
-module "storage_account" {
-
-  source = "git@github.com:stone-payments/terraform-azure-storageaccount.git?ref=v1.0.0" # see tags for available versions
-
-  storage_account_name                      = "..."
-  storage_account_resource_group_name       = "..."
-  storage_account_location                  = "..."
-  storage_account_enable_https_traffic_only = "..."
-  storage_account_tier                      = "..."
-  storage_account_kind                      = "..."
-  storage_account_replication_type          = "..."
 
 }
 ```
