@@ -86,7 +86,7 @@ variable "storage_share_name" {
   default     = null
 }
 
-variable "storage_container_quota" {
+variable "storage_share_quota" {
   description = "Storage share quota."
   default     = null
 }
