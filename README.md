@@ -1,4 +1,4 @@
-# Terraform Azure Storage Account Queue Module
+# Terraform Azure Storage Account Module
 
 This module creates an Azure Storage Account, Storage Account to host a Static Website, Storage Container and Storage Share following the best practices defined by the SRE/Cloud team at Stone CO.
 
