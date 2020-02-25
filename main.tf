@@ -29,6 +29,7 @@ resource "azurerm_storage_container" "storage_container" {
   name                  = var.storage_container_name
   storage_account_name  = var.storage_account_name
   container_access_type = var.storage_container_access_type
+  depends_on            = [azurerm_storage_account.storage_account]
 }
 
 resource "azurerm_storage_share" "storage_share" {
@@ -36,4 +37,5 @@ resource "azurerm_storage_share" "storage_share" {
   name                 = var.storage_share_name
   storage_account_name = var.storage_account_name
   quota                = var.storage_share_quota
+  depends_on           = [azurerm_storage_account.storage_account]
 }
