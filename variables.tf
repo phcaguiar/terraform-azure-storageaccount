@@ -12,6 +12,7 @@ variable "storage_account_resource_group_name" {
 
 variable "storage_account_location" {
   description = "The location of storage account."
+  default     = null
 }
 
 variable "storage_account_name" {
@@ -20,18 +21,22 @@ variable "storage_account_name" {
 
 variable "storage_account_enable_https_traffic_only" {
   description = "Option to enable advanced https traffic only."
+  default     = null
 }
 
 variable "storage_account_tier" {
   description = "Account tier."
+  default     = null
 }
 
 variable "storage_account_kind" {
   description = "Account kind."
+  default     = null
 }
 
 variable "storage_account_replication_type" {
   description = "Account replication type."
+  default     = null
 }
 
 # Storage account variables for static website
