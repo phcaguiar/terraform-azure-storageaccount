@@ -35,5 +35,5 @@ resource "azurerm_storage_share" "storage_share" {
   count                = var.has_storage_share ? 1 : 0
   name                 = var.storage_share_name
   storage_account_name = var.storage_account_name
-  quota                = var.storage_container_quota
+  quota                = var.storage_share_quota
 }

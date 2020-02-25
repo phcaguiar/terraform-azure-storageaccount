@@ -9,7 +9,7 @@ This module creates an Azure Storage Account, Storage Account for Static Website
 
 ## How to use
 
-The following parameters are expected:
+The following parameters are mandatory for all resources:
 
 - ``storage_account_resource_group_name``: All resources in this module will be created in this resource group. Ex: Infrastructure-Common-EC2-DEV
 - ``storage_account_name``: Name of the storage account.
@@ -17,7 +17,7 @@ The following parameters are expected:
 The example below will create a storage account to host a static website:
 
 ```hcl
-module "storage_account" {
+module "storage_account_static_website" {
 
   source = "git@github.com:stone-payments/terraform-azure-storageaccount.git?ref=v1.0.0" # see tags for available versions
 
@@ -35,18 +35,52 @@ module "storage_account" {
 }
 ```
 
-The example below will create a storage container on an existing storage account:
+The example below will create a storage account:
 
 ```hcl
 module "storage_account" {
 
   source = "git@github.com:stone-payments/terraform-azure-storageaccount.git?ref=v1.0.0" # see tags for available versions
 
-  has_storage_account                       = "..." # This variable with the value false defines that the storage account will not be created
   storage_account_name                      = "..."
-  has_storage_container                     = "..." # This variable with the value true defines that the storage container will be created
-  storage_container_name                    = "..." # Use this variable only to create a storage container
-  storage_container_access_type             = "..." # Use this variable only to create a storage container
+  storage_account_resource_group_name       = "..."
+  storage_account_location                  = "..."
+  storage_account_enable_https_traffic_only = "..."
+  storage_account_tier                      = "..."
+  storage_account_kind                      = "..."
+  storage_account_replication_type          = "..."
+
+}
+```
+
+The example below will create a storage container on an existing storage account:
+
+```hcl
+module "storage_container" {
+
+  source = "git@github.com:stone-payments/terraform-azure-storageaccount.git?ref=v1.0.0" # see tags for available versions
+
+  has_storage_account           = "..." # This variable with the value false defines that the storage account will not be created
+  storage_account_name          = "..."
+  has_storage_container         = "..." # This variable with the value true defines that the storage container will be created
+  storage_container_name        = "..." # Use this variable only to create a storage container
+  storage_container_access_type = "..." # Use this variable only to create a storage container
+
+}
+```
+
+The example below will create a storage share on an existing storage account:
+
+```hcl
+module "storage_share" {
+
+  source = "git@github.com:stone-payments/terraform-azure-storageaccount.git?ref=v1.0.0" # see tags for available versions
+
+  has_storage_account  = "..." # This variable with the value false defines that the storage account will not be created
+  storage_account_name = "..."
+  has_storage_share    = "..." # This variable with the value true defines that the storage share will be created
+  storage_share_name   = "..." # Use this variable only to create a storage share
+  storage_share_quota  = "..." # Use this variable only to create a storage share
 
 }
 ```
