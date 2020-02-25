@@ -9,7 +9,7 @@ This module creates an Azure Storage Account, Storage Account for Static Website
 
 ## How to use
 
-The following parameters are mandatory for all resources:
+The following parameters are mandatory for all resources of this module:
 
 - ``storage_account_resource_group_name``: All resources in this module will be created in this resource group. Ex: Infrastructure-Common-EC2-DEV
 - ``storage_account_name``: Name of the storage account.
