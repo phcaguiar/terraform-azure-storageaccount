@@ -31,8 +31,8 @@ variable "storage_account_tier" {
 }
 
 variable "storage_account_kind" {
-  description = "(Optional) Defines the Kind of account. Valid options are BlobStorage, BlockBlobStorage, FileStorage, Storage and StorageV2. Changing this forces a new resource to be created. Defaults to BlobStorage."
-  default     = "BlobStorage"
+  description = "(Optional) Defines the Kind of account. Valid options are BlobStorage, BlockBlobStorage, FileStorage, Storage and StorageV2. Changing this forces a new resource to be created. Defaults to StorageV2."
+  default     = "StorageV2"
 }
 
 variable "storage_account_replication_type" {
