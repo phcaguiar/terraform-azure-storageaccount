@@ -1,6 +1,6 @@
-# Terraform AKS Module
+# Terraform Azure Storage Account
 
-This module creates an AKS cluster following the best practices defined by the SRE/Cloud team at Stone CO.
+This module creates an tratitional storage account, storage account to host a static website, storage container and storage share.
 
 ## Requirements
 
@@ -18,9 +18,9 @@ With all that defined, just call it in your configuration.
 
 ```hcl
 module "storage_account" {
-  source                                    = "git@github.com:stone-payments/terraform-azure-storageaccount.git?ref=v1.0.0" # see tags for available versions
-  storage_account_name                      = "..."
-  storage_account_resource_group_name       = "..."
+  source                              = "git@github.com:stone-payments/terraform-azure-storageaccount.git?ref=v1.0.0" # see tags for available versions
+  storage_account_name                = "..."
+  storage_account_resource_group_name = "..."
 }
 ```
 **The following parameters are mandatory to provision a storage account:**
