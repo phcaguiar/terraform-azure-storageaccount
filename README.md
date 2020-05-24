@@ -23,7 +23,7 @@ module "storage_account" {
   storage_account_resource_group_name = "..."
 }
 ```
-**The following parameters are mandatory to provision a storage account:**
+**The following parameters are mandatory to provision a storage account to host a static website:**
 
 - ``create_storage_account``: Parameter to execute terraform module without create a traditional storage account.
 - ``create_static_website``: Parameter to create a storage account for host a static web site.
