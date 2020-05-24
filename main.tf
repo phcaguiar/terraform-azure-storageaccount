@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "storage_account" {
-  count                     =  !var.has_static_website && var.create_storage_account ? 1 : 0
+  count                     =  !var.create_static_website && var.create_storage_account ? 1 : 0
   name                      =  var.storage_account_name
   resource_group_name       =  var.storage_account_resource_group_name
   location                  =  var.storage_account_location
@@ -10,7 +10,7 @@ resource "azurerm_storage_account" "storage_account" {
 }
 
 resource "azurerm_storage_account" "storage_account_with_static_website" {
-  count                     =  var.has_static_website && var.create_storage_account ? 1 : 0
+  count                     =  var.create_static_website && var.create_storage_account ? 1 : 0
   name                      =  var.storage_account_name
   resource_group_name       =  var.storage_account_resource_group_name
   location                  =  var.storage_account_location
