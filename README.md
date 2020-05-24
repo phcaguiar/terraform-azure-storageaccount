@@ -1,6 +1,6 @@
 # Terraform Azure Storage Account
 
-This module creates an tratitional storage account, storage account to host a static website, storage container and storage share.
+This module creates a traditional storage account, storage account to host a static website, storage container and storage share.
 
 ## Requirements
 
