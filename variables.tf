@@ -1,92 +1,82 @@
 # Storage account variables
 
-variable "has_storage_account" {
-  description = "If true, the module will create a storage account. Otherwise they won't be created."
+variable "create_storage_account" {
+  description = "(Optional) If true, the module will create a storage account. Otherwise they won't be created. Defaults to true."
   default     = "true"
 }
 
 variable "storage_account_resource_group_name" {
-  description = "The resource group name of storage account."
+  description = "(Required only to provision storage account) The name of the resource group in which to create the storage account. Changing this forces a new resource to be created."
   default     = null
   
 }
 
 variable "storage_account_location" {
-  description = "The location of storage account."
-  default     = null
+  description = "(Optional) Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Defalts to eastus2."
+  default     = "eastus2"
 }
 
 variable "storage_account_name" {
-  description = "The name of the storage account."
+  description = "(Required) Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group."
 }
 
 variable "storage_account_enable_https_traffic_only" {
-  description = "Option to enable advanced https traffic only."
-  default     = null
+  description = "(Optional) Boolean flag which forces HTTPS if enabled, see here for more information. Defaults to true."
+  default     = "true"
 }
 
 variable "storage_account_tier" {
-  description = "Account tier."
-  default     = null
+  description = "(Optional) Defines the Tier to use for this storage account. Valid options are Standard and Premium. For FileStorage accounts only Premium is valid. Changing this forces a new resource to be created. Defaults to Standard."
+  default     = "Standard"
 }
 
 variable "storage_account_kind" {
-  description = "Account kind."
-  default     = null
+  description = "(Optional) Defines the Kind of account. Valid options are BlobStorage, BlockBlobStorage, FileStorage, Storage and StorageV2. Changing this forces a new resource to be created. Defaults to BlobStorage."
+  default     = "BlobStorage"
 }
 
 variable "storage_account_replication_type" {
-  description = "Account replication type."
-  default     = null
+  description = "(Required) Defines the type of replication to use for this storage account. Valid options are LRS, GRS, RAGRS and ZRS. Defaults to LRS."
+  default     = "LRS"
 }
 
 # Storage account variables for static website
 
-variable "has_static_website" {
-  description = "If true, the module will create a storage account to static website. Otherwise they won't be created."
+variable "create_static_website" {
+  description = "(Optional) If true, the module will create a storage account to static website. Otherwise they won't be created. Defaults do false."
   default     = "false"
 }
 
 variable "storage_account_index_document" {
-  description = "The index document."
-  default     = null
+  description = "(Optional) The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive. Defaults to index.html."
+  default     = "index.html"
 }
 
 variable "storage_account_error_404_document" {
-  description = "The error document."
-  default     = null
+  description = "(Optional) The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file. Defaults to 404.html."
+  default     = "404.html"
 }
 
 # Storage container variables
 
-variable "has_storage_container" {
-  description = "If true, the module will create a storage container. Otherwise they won't be created."
-  default     = "false"
-}
-
 variable "storage_container_name" {
-  description = "The name of the storage container."
-  default     = null
+  description = "(Required only to provision storage container) The name of the Container which should be created within the Storage Account."
+  default     = ""
 }
 
 variable "storage_container_access_type" {
-  description = "Storage container access type."
-  default     = null
+  description = "(Optional) The Access Level configured for this Container. Possible values are blob, container or private. Defaults to private."
+  default     = "private"
 }
 
 # Storage share variables
 
-variable "has_storage_share" {
-  description = "If true, the module will create a storage share. Otherwise they won't be created."
-  default     = "false"
-}
-
 variable "storage_share_name" {
-  description = "The name of the storage share."
-  default     = null
+  description = "(Required only to provision storage share) The name of the share. Must be unique within the storage account where the share is located."
+  default     = ""
 }
 
 variable "storage_share_quota" {
-  description = "Storage share quota."
-  default     = null
+  description = "(Optional) The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120."
+  default     = "5120"
 }
